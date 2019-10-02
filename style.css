@@ -1,0 +1,201 @@
+html{
+  height: 100%;
+}
+body{
+  margin: 0;
+  padding: 0;
+  color: white;
+  height: 100%;
+}
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  text-align:center; 
+  background: #000;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  padding: 10px;
+}
+#contents{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+h2{ 
+  color: white; 
+  font-size: 16px; 
+  text-align: center;
+}
+form{
+  overflow: hidden;
+}
+input[type="submit"]{
+  border: none;
+  padding: 15px 30px;
+  margin-bottom: 15px;
+  background: black;
+  color: white;
+}
+input[type="submit"]:hover{
+  background: #3d3938;
+  cursor: pointer;
+}
+a{
+  color: #545454;
+  display: block;
+}
+a:hover{
+  text-decoration: none;
+}
+.answer{
+  display: block; 
+  width: 500px; 
+  background: white; 
+  color: black; 
+  border: 6px double #daa520	; 
+  border-radius: 10px; 
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #b8b8b8;
+}
+.answer-list{
+  display: flex; 
+  flex-direction: column; 
+  list-style: none;
+  text-align: center; 
+  margin: 0 auto; 
+  width: 800px;
+}
+.selected{
+  font-weight: bold;
+}
+.correct{
+  font-weight: bold;
+}
+.wrong{
+  color: #ddd;
+}
+#btn{
+  text-align: center;
+  width: 150px;
+  padding: 7px;
+  color: #fff;
+  border-radius: 5px;
+  background: #111;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+#btn.disabled{
+  opacity: 0.5;
+}
+.status{
+  background: #000;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 6px double #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.game-title{
+  color:#fff;
+  font-size: 24px;
+  margin: 0;
+}
+.catch-copy{
+  font-size: 16px;
+  padding: 20px;
+}
+.monster{
+  height: 150px;
+  margin-bottom: 10px;
+}
+.monster img{
+  width:120px;
+  height:auto;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+.question{
+  color:white;
+  width: 800px;
+  background: black;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 6px double #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.message{
+  background: #000;
+  width :200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.score-area{
+  width: 800px;
+  height: 180px;
+  border-radius: 6px;
+  border: 6px double #fff;
+  background: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.restart-btn{
+  float: right;
+}
+.post{
+  overflow: hidden;
+}
+.link-container{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+}
+.link-container a{
+  color: white;
+  font-size: 20px;
+}
+.battle-screen{
+  width: 100%;
+  overflow: hidden;
+}
+.start-screen{
+  width: 100%;
+}
+.battle-area{
+  float: left;
+  width: 70%;
+}
+.history-area{
+  float: left;
+  width: 30%;
+  background: #000;
+  border: 6px double #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
