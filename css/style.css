@@ -15,67 +15,78 @@ h1,h2,h3,h4,h5,h6,p{
   text-align:center; 
   background: #000;
   height: 50px;
-  width: 100%;
+  width: 1000px;
+  margin: 0 auto;
   line-height: 50px;
-  padding: 10px;
 }
 #contents{
   text-align: center;
-  width: 100%;
-  height: 100%;
+  width: 1000px;
+  height: 700px;
+  margin: 0 auto;
+  box-sizing: border-box;
   position: relative;
-  background-image: url(img/background.png);
+  background-image: url(../img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-h2{ 
-  color: white; 
-  font-size: 16px; 
-  text-align: center;
-}
-form{
-  overflow: hidden;
-}
-input[type="submit"]{
+.btn{
   border: none;
   padding: 15px 30px;
   margin-bottom: 15px;
   background: black;
   color: white;
+  display: inline-block;
 }
-input[type="submit"]:hover{
+.btn:hover{
   background: #3d3938;
   cursor: pointer;
-}
-a{
-  color: #545454;
-  display: block;
 }
 a:hover{
   text-decoration: none;
 }
 .answer{
   display: block; 
-  width: 500px; 
+  width: 400px;
+  height: 45px;
   background: white; 
   color: black; 
   border: 6px double #daa520	; 
   border-radius: 10px; 
   box-sizing: border-box;
   text-align: center;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  margin: 20px auto;
+  margin-bottom: 0px;
   cursor: pointer;
   box-shadow: 3px 3px 3px #b8b8b8;
+  position: relative;
+}
+.answer::before{
+  counter-increment: number;
+  content: counter(number);
+  position: absolute;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  width: 2em;
+  height: 2rem;
+  background: #111;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2rem;
+}
+.answer:hover{
+  opacity: 0.5;
 }
 .answer-list{
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  text-align: center; 
-  margin: 0 auto; 
-  width: 800px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  counter-reset: number;
 }
 .selected{
   font-weight: bold;
@@ -85,31 +96,6 @@ a:hover{
 }
 .wrong{
   color: #ddd;
-}
-#btn{
-  text-align: center;
-  width: 150px;
-  padding: 7px;
-  color: #fff;
-  border-radius: 5px;
-  background: #111;
-  cursor: pointer;
-  font-size: 14px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-#btn.disabled{
-  opacity: 0.5;
-}
-.status{
-  background: #000;
-  width: 180px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 6px double #fff;
-  border-radius: 10px;
-  margin-bottom: 10px;
 }
 .game-title{
   color:#fff;
@@ -126,9 +112,7 @@ a:hover{
 }
 .monster img{
   width:120px;
-  height:auto;
-  margin-left: auto;
-  margin-right: auto;
+  height:100%;
   display:block;
 }
 .question{
@@ -142,12 +126,6 @@ a:hover{
   border-radius: 10px;
   padding: 10px;
 }
-.message{
-  background: #000;
-  width :200px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .score-area{
   width: 800px;
   height: 180px;
@@ -160,42 +138,46 @@ a:hover{
   left: 0;
   right: 0;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.restart-btn{
-  float: right;
+.start-screen{
+  width: 100%;
 }
-.post{
-  overflow: hidden;
+.log{
+  height: 200px;
+  width: 300px;
+  text-align: start;
+  background: #000;
+  border: 6px double #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: scroll;
+  margin-left: 50px;
+}
+.battle-area{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.reset-btn{
+  margin-top: 50px;
+}
+.img-container{
+  height: 150px;
+}
+.start-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .link-container{
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  padding: 20px;
 }
-.link-container a{
-  color: white;
-  font-size: 20px;
-}
-.battle-screen{
-  width: 100%;
-  overflow: hidden;
-}
-.start-screen{
-  width: 100%;
-}
-.battle-area{
-  float: left;
-  width: 70%;
-}
-.history-area{
-  float: left;
-  width: 30%;
-  background: #000;
-  border: 6px double #fff;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-

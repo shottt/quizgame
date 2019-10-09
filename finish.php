@@ -7,12 +7,13 @@ $score = $_SESSION['knockDownCount'] * $_SESSION['correctAnswerConut'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>クイズRPG</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>クイズRPG</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 <body>
   <div id="contents">
     <div class="score-area">
@@ -21,7 +22,7 @@ $score = $_SESSION['knockDownCount'] * $_SESSION['correctAnswerConut'];
       <p>スコア：<?php echo $score; ?></p>
     </div>
     <div class="link-container">
-      <a href="index.php"><?php $_SESSION = array(); ?>スタート画面へ</a>
+      <a href="index.php" class="btn"><?php $_SESSION = array(); ?>スタート画面へ</a>
     </div>
   </div>
   

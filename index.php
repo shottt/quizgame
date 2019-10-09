@@ -4,7 +4,7 @@ require_once(__DIR__ . '/class.php');
 require_once(__DIR__ . '/config.php');
 
 // インスタンス生成
-$human = new Human('勇者見習い', Sex::OKAMA, 500, 60, 120);
+$human = new Human('勇者', Sex::MAN, 500, 60, 120);
 $monsters[] = new Monster('スライム', 80, 'img/monster01.png', 20, 40 );
 $monsters[] = new MagicMonster('ポーン', 110, 'img/monster02.png', 20, 50, mt_rand(40, 70) );
 $monsters[] = new Monster('マッチョ', 160, 'img/monster03.png', 30, 50 );
@@ -26,7 +26,7 @@ $_SESSION['correctAnswer'] = $quiz->checkAnswer();
 function createMonster(){
   global $monsters;
   $monster =  $monsters[mt_rand(0, 5)];
-  History::set($monster->getName().'が現れた！');
+  History::set('▼ ' . $monster->getName().'が現れた！');
   $_SESSION['monster'] =  $monster;
 }
 function createHuman(){
@@ -35,7 +35,7 @@ function createHuman(){
 }
 function init(){
   History::clear();
-  History::set('初期化します！');
+  History::set('>>>>> 初期化します！');
   $_SESSION['knockDownCount'] = 0;
   $_SESSION['correctAnswerConut'] = 0;
   createHuman();
@@ -119,8 +119,9 @@ if(!empty($_POST)){
 <html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>クイズRPG</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header class="header">
@@ -129,37 +130,37 @@ if(!empty($_POST)){
     <div id="contents">
       <?php if(empty($_SESSION['human'])) : ?>
       <div class="start-screen">
-        <p class="catch-copy">クイズに答えて敵を倒そう！！</p>
-        <form method="post">
-          <input type="submit" name="start" value="▶GAME START ?" class="start-btn">
+        <form method="post" class="start-form">
+          <h2 class="catch-copy">クイズに答えて敵を倒そう！！</h2>
+          <input type="submit" name="start" value="▶GAME START ?" class="btn">
         </form>
       </div>
       <?php else : ?>
-      <div class="battle-screen">
-        <div class="battle-area">
-          <h2 class="message"><?php echo $_SESSION['monster']->getName().'が現れた!!'; ?></h2>
-          <div class="monster">
-            <img src="<?php echo $_SESSION['monster']->getImg(); ?>" class="blink">
-          </div>
-          <div class="status">
-            <p>モンスターのHP：<?php echo $_SESSION['monster']->getHp(); ?></p>
-            <p>勇者の残りHP：<?php echo $_SESSION['human']->getHp(); ?></p>
-          </div>
-            <div class="question">
-              <p><?= $data['q']; ?></p>
-            </div>
-          <ul class="answer-list">
-            <?php foreach ($data['a'] as $a) : ?>
-              <li class="answer js-answer-check"><span class="judge js-judge"></span><?= $a; ?></li>
-            <?php endforeach; ?>
-          </ul>
+      
+      <div class="battle-area">
+        <div class="monster">
+          <p class="img-container"><img src="<?php echo $_SESSION['monster']->getImg(); ?>" class="blink"></p>
+          <span><?php echo $_SESSION['monster']->getName(); ?></span>/<span>HP：<?php echo $_SESSION['monster']->getHp(); ?></span>
+          <p>勇者の残りHP：<?php echo $_SESSION['human']->getHp(); ?></p>
         </div>
-        <div class="history-area">
+        
+        <div class="log js-auto-scroll">
           <p><?php echo (!empty($_SESSION['history'])) ? $_SESSION['history'] : ''; ?></p>
         </div>
       </div>
-      <form method="post" class="post">
-          <input type="submit" name="reset" value="▶︎ゲームリスタート" class="restart-btn">
+      <div class="quiz-area">
+        <div class="question">
+          <p><?= 'Q. ' . $data['q']; ?></p>
+        </div>
+        <ol class="answer-list">
+          <?php foreach ($data['a'] as $a) : ?>
+            <li class="answer js-answer-check"><span class="judge js-judge"></span><?= $a; ?></li>
+          <?php endforeach; ?>
+        </ol>
+      </div>
+
+      <form method="post" class="reset-btn">
+        <input type="submit" name="reset" value="▶︎ゲームをリセットする" class="btn">
       </form>
       <?php endif; ?>
       
